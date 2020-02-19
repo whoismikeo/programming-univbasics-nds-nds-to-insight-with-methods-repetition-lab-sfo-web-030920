@@ -26,6 +26,11 @@ end
 
 def list_of_directors(source)
   # Write this implementation
+  names = []
+  for el in source do
+    names.push(el[:name])
+  end
+  return names
 end
 
 def total_gross(source)
@@ -38,6 +43,13 @@ def total_gross(source)
   # Visit each key (i.e. director name), look up the value in the hash
   # returned by directors_totals, and add it to a running total. When done,
   # return the total
+  total = 0
+  list_totals = directors_totals(source)
+  names = list_of_directors(source)
+  for each in names do
+    total += list_totals[each]
+  end
+  return total
 end
 
 
